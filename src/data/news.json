@@ -1,0 +1,66 @@
+{
+    "news": [
+      {
+        "id": 1,
+        "name": "Habertürk",
+        "color": "#FF7474",
+        "categories": {
+          "Tüm Haberler": "https://www.haberturk.com/rss/manset.xml",
+          "Siyaset": "https://www.haberturk.com/rss/kategori/siyaset.xml",
+          "Ekonomi": "https://www.haberturk.com/rss/ekonomi.xml",
+          "Spor": "https://www.haberturk.com/rss/spor.xml",
+          "Sağlık": "https://www.haberturk.com/rss/kategori/saglik.xml",
+          "Magazin": "https://www.haberturk.com/rss/magazin.xml"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sözcü",
+        "color": "#FFB775",
+        "categories": {
+          "Tüm Haberler": "https://www.sozcu.com.tr/rss/tum-haberler.xml",
+          "Son Dakika": "https://www.sozcu.com.tr/rss/son-dakika.xml",
+          "Ekonomi": "https://www.sozcu.com.tr/rss/ekonomi.xml",
+          "Spor": "https://www.sozcu.com.tr/rss/spor.xml",
+          "Sağlık": "https://www.sozcu.com.tr/rss/saglik.xml",
+          "Bilim-Teknoloji": "https://www.sozcu.com.tr/rss/bilim-teknoloji.xml"
+        }
+      },
+      {
+        "id": 3,
+        "name": "CNN Türk",
+        "color": "#29C868",
+        "categories": {
+          "Tüm Haberler": "https://www.cnnturk.com/feed/rss/all/news",
+          "Gündem": "https://www.cnnturk.com/feed/rss/turkiye/news",
+          "Ekonomi": "https://www.cnnturk.com/feed/rss/ekonomi/news",
+          "Spor": "https://www.cnnturk.com/feed/rss/spor/news",
+          "Sağlık": "https://www.cnnturk.com/feed/rss/saglik/news",
+          "Kültür-Sanat": "https://www.cnnturk.com/feed/rss/kultur-sanat/news"
+        }
+      },
+      {
+        "id": 4,
+        "name": "T24",
+        "color": "#72C9EC",
+        "categories": {
+          "Tüm Haberler": "https://t24.com.tr/rss",
+          "Dünya Basını": "https://t24.com.tr/rss/haber/dunya-basininda-bugun",
+          "Ekonomi": "https://t24.com.tr/rss/haber/ekonomi",
+          "Spor": "https://t24.com.tr/rss/haber/spor",
+          "Sağlık": "https://t24.com.tr/rss/haber/saglik",
+          "Kültür-Sanat": "https://t24.com.tr/rss/haber/kultur-sanat"
+        }
+      },
+      {
+        "id": 5,
+        "name": "BBC Türkçe",
+        "color": "#BE9FFF",
+        "categories": {
+          "Haberler": "https://feeds.bbci.co.uk/turkce/rss.xml",
+          "Dış Basın": "https://feeds.bbci.co.uk/turkce/rss.xml",
+          "Ekonomi": "https://www.bbc.com/turkce/ekonomi/index.xml"
+        }
+      }
+    ]
+}
