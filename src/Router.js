@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-//pages
+// pages
 import NewsFeed from './pages/NewsFeed/NewsFeed';
 import NewsSub from './pages/NewsSub/NewsSub';
 
