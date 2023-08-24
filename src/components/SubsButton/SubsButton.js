@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 
+//style
 import styles from './SubsButton.style';
 
 const SubsButton = () => {

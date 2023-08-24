@@ -1,12 +1,18 @@
 import React from 'react';
 import {SafeAreaView, FlatList, Text} from 'react-native';
-import NewsContent from '../../components/NewsContent/NewsContent';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs'; // Import the hook
-import styles from './NewsSub.style';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+
+//data
 import newsData from '../../data/news.json';
 
+//style
+import styles from './NewsSub.style';
+
+//component
+import NewsContent from '../../components/NewsContent/NewsContent';
+
 function NewsSub() {
-  const tabBarHeight = useBottomTabBarHeight(); // Get the bottom tab bar height
+  const tabBarHeight = useBottomTabBarHeight();
 
   const renderItem = ({item}) => {
     return Object.keys(item.categories).map(category => (

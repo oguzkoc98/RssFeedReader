@@ -1,7 +1,10 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Linking} from 'react-native';
+
+//render-html
 import HTML from 'react-native-render-html';
 
+//style
 import styles from './NewsItem.style';
 
 const NewsItem = ({title, description, link, source}) => {

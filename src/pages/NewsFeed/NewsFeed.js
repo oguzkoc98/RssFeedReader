@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs'; // Import the hook
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
 // component
 import NewsCard from '../../components/NewsCard/NewsCard';
@@ -9,7 +9,7 @@ import NewsCard from '../../components/NewsCard/NewsCard';
 import styles from './NewsFeed.style';
 
 function NewsFeed() {
-  const tabBarHeight = useBottomTabBarHeight(); // Get the bottom tab bar height
+  const tabBarHeight = useBottomTabBarHeight();
 
   return (
     <SafeAreaView style={[styles.container, {marginBottom: tabBarHeight + 20}]}>
