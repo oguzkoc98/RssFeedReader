@@ -1,23 +1,23 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
+//components
+import SubsButton from '../SubsButton/SubsButton';
+
 //style
 import styles from './NewsContent.style';
 
-//component
-import SubsButton from '../SubsButton/SubsButton';
-
-const NewsContent = props => {
+const NewsContent = ({title, category, color, url}) => {
   return (
-    <View style={[styles.container, {backgroundColor: props.color}]}>
+    <View style={[styles.container, {backgroundColor: color}]}>
       <View style={styles.item}>
-        <Text style={styles.news}>{props.title}</Text>
+        <Text style={styles.news}>{title}</Text>
       </View>
       <View style={styles.item}>
-        <Text style={styles.category}>/{props.category}</Text>
+        <Text style={styles.category}>/{category}</Text>
       </View>
       <View style={styles.item}>
-        <SubsButton />
+        <SubsButton url={url} name={title} />
       </View>
     </View>
   );

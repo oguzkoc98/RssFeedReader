@@ -21,6 +21,7 @@ function NewsSub() {
         title={item.name}
         category={category}
         color={item.color}
+        url={item.categories[category]}
       />
     ));
   };

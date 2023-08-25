@@ -1,31 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
-
-//style
+import {SubscriptionContext} from '../../context/SubscriptionContext'; // Import the context
 import styles from './SubsButton.style';
 
-const SubsButton = () => {
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handlePress = () => {
-    setIsSubscribed(prevState => !prevState);
-  };
-
+const SubsButton = ({url, name}) => {
   return (
-    <TouchableOpacity
-      style={[
-        styles.button,
-        {backgroundColor: isSubscribed ? '#414141' : '#F4F4F4'},
-      ]}
-      onPress={handlePress}>
-      <Text
-        style={[
-          styles.buttonText,
-          {color: isSubscribed ? 'white' : '#5C5C5C'},
-        ]}>
-        {isSubscribed ? 'Çık' : 'Abone Ol'}
-      </Text>
-    </TouchableOpacity>
+    <SubscriptionContext.Consumer>
+      {({subscriptionData, addSubscription}) => {
+        const handlePress = () => {
+          addSubscription(url, name);
+        };
+
+        const isSubscribed = subscriptionData.some(item => item.url === url);
+        const buttonBackgroundColor = isSubscribed ? '#414141' : '#F4F4F4';
+        const buttonText = isSubscribed ? 'Çık' : 'Abone Ol';
+        const buttonTextColor = isSubscribed ? 'white' : '#5C5C5C';
+
+        return (
+          <TouchableOpacity
+            style={[styles.button, {backgroundColor: buttonBackgroundColor}]}
+            onPress={handlePress}>
+            <Text style={[styles.buttonText, {color: buttonTextColor}]}>
+              {buttonText}
+            </Text>
+          </TouchableOpacity>
+        );
+      }}
+    </SubscriptionContext.Consumer>
   );
 };
 
