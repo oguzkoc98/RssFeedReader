@@ -1,6 +1,10 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
-import {SubscriptionContext} from '../../context/SubscriptionContext'; // Import the context
+
+//context
+import {SubscriptionContext} from '../../context/SubscriptionContext';
+
+//style
 import styles from './SubsButton.style';
 
 const SubsButton = ({url, name}) => {

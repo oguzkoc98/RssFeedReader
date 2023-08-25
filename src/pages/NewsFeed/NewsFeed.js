@@ -1,8 +1,14 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
-import {SubscriptionContext} from '../../context/SubscriptionContext'; // Import the context
+
+//context
+import {SubscriptionContext} from '../../context/SubscriptionContext';
+
+//component
 import NewsCard from '../../components/NewsCard/NewsCard';
+
+//style
 import styles from './NewsFeed.style';
 
 function NewsFeed() {
