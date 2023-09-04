@@ -1464,6 +1464,13 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
+"@react-native-async-storage/async-storage@^1.19.3":
+  version "1.19.3"
+  resolved "https://registry.npmjs.org/@react-native-async-storage/async-storage/-/async-storage-1.19.3.tgz"
+  integrity sha512-CwGfoHCWdPOTPS+2fW6YRE1fFBpT9++ahLEroX5hkgwyoQ+TkmjOaUxixdEIoVua9Pz5EF2pGOIJzqOTMWfBlA==
+  dependencies:
+    merge-options "^3.0.4"
+
 "@react-native-community/cli-debugger-ui@^7.0.3":
   version "7.0.3"
   resolved "https://registry.npmjs.org/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-7.0.3.tgz"
@@ -4503,6 +4510,11 @@ is-number@^7.0.0:
   resolved "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
 
+is-plain-obj@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-2.1.0.tgz"
+  integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
+
 is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/is-plain-object/-/is-plain-object-2.0.4.tgz"
@@ -5472,6 +5484,13 @@ map-visit@^1.0.0:
   integrity sha512-4y7uGv8bd2WdM9vpQsiQNo41Ln1NvhvDRuVt0k2JZQ+ezN2uaQes7lZeZ+QQUHOLQAtDaBJ+7wCbi+ab/KFs+w==
   dependencies:
     object-visit "^1.0.0"
+
+merge-options@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npmjs.org/merge-options/-/merge-options-3.0.4.tgz"
+  integrity sha512-2Sug1+knBjkaMsMgf1ctR1Ujx+Ayku4EdJN4Z+C2+JzoeF7A3OZ9KM2GY0CpQS51NR61LTurMJrRKPhSs3ZRTQ==
+  dependencies:
+    is-plain-obj "^2.1.0"
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -6550,7 +6569,7 @@ react-native-vector-icons@*:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native@*, react-native@^*, react-native@>=0.59, react-native@0.68.2:
+react-native@*, react-native@^*, "react-native@^0.0.0-0 || 0.60 - 0.72 || 1000.0.0", react-native@>=0.59, react-native@0.68.2:
   version "0.68.2"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.68.2.tgz"
   integrity sha512-qNMz+mdIirCEmlrhapAtAG+SWVx6MAiSfCbFNhfHqiqu1xw1OKXdzIrjaBEPihRC2pcORCoCHduHGQe/Pz9Yuw==
