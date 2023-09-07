@@ -3,7 +3,7 @@
       {
         "id": 1,
         "name": "Habertürk",
-        "color": "#FF7474",
+        "color": "#E11808",
         "categories": {
           "Tüm Haberler": "https://www.haberturk.com/rss/manset.xml",
           "Siyaset": "https://www.haberturk.com/rss/kategori/siyaset.xml",
@@ -16,7 +16,7 @@
       {
         "id": 2,
         "name": "Sözcü",
-        "color": "#FFB775",
+        "color": "#0DA200",
         "categories": {
           "Tüm Haberler": "https://www.sozcu.com.tr/rss/tum-haberler.xml",
           "Son Dakika": "https://www.sozcu.com.tr/rss/son-dakika.xml",
@@ -29,7 +29,7 @@
       {
         "id": 3,
         "name": "CNN Türk",
-        "color": "#29C868",
+        "color": "#DA812F",
         "categories": {
           "Tüm Haberler": "https://www.cnnturk.com/feed/rss/all/news",
           "Gündem": "https://www.cnnturk.com/feed/rss/turkiye/news",
@@ -42,7 +42,7 @@
       {
         "id": 4,
         "name": "T24",
-        "color": "#72C9EC",
+        "color": "#0A73D6",
         "categories": {
           "Tüm Haberler": "https://t24.com.tr/rss",
           "Dünya Basını": "https://t24.com.tr/rss/haber/dunya-basininda-bugun",
@@ -55,7 +55,7 @@
       {
         "id": 5,
         "name": "BBC Türkçe",
-        "color": "#BE9FFF",
+        "color": "#8F0F5C",
         "categories": {
           "Haberler": "https://feeds.bbci.co.uk/turkce/rss.xml",
           "Dış Basın": "https://feeds.bbci.co.uk/turkce/rss.xml",

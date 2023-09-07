@@ -16,14 +16,11 @@ const SubsButton = ({url, name}) => {
         };
 
         const isSubscribed = subscriptionData.some(item => item.url === url);
-        const buttonBackgroundColor = isSubscribed ? '#414141' : '#F4F4F4';
         const buttonText = isSubscribed ? 'Çık' : 'Abone Ol';
-        const buttonTextColor = isSubscribed ? 'white' : '#5C5C5C';
+        const buttonTextColor = isSubscribed ? '#868686' : '#1E1E1E';
 
         return (
-          <TouchableOpacity
-            style={[styles.button, {backgroundColor: buttonBackgroundColor}]}
-            onPress={handlePress}>
+          <TouchableOpacity style={styles.button} onPress={handlePress}>
             <Text style={[styles.buttonText, {color: buttonTextColor}]}>
               {buttonText}
             </Text>

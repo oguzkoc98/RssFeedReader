@@ -4,8 +4,6 @@ export default StyleSheet.create({
   button: {
     paddingVertical: 12,
     paddingHorizontal: 22,
-    backgroundColor: '#F4F4F4',
-    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,

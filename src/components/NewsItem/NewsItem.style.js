@@ -2,43 +2,49 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
+    marginHorizontal: 6,
     padding: 12,
-    margin: 6,
-    borderRadius: 10,
-    borderColor: '#0f79a3',
-    backgroundColor: '#20BEFD',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#F0F0F0',
-  },
-  description: {
-    flex: 1,
-    fontSize: 20,
+    backgroundColor: '#FFFFFF',
     marginBottom: 2,
-    color: '#F6F6F6',
   },
-  footer: {
+  header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 8,
   },
   source: {
-    fontSize: 16,
+    fontFamily: 'IBMPlexSans-Bold',
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#e9eced',
+    color: '#0077A8',
+    marginBottom: 5,
+  },
+  image: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 8,
+  },
+  title: {
+    fontFamily: 'IBMPlexSans-SemiBold',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#2D2D2D',
+  },
+  description: {
+    fontFamily: 'IBMPlexSans-Regular',
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#515151',
   },
   button: {
+    marginTop: 10,
     paddingVertical: 8,
-    paddingHorizontal: 10,
-    borderRadius: 22,
-    backgroundColor: '#1BACE7',
+    paddingHorizontal: 16,
+    alignSelf: 'flex-end',
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#0077A8',
     fontWeight: 'bold',
   },
 });

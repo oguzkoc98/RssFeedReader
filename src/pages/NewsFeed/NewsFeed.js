@@ -1,25 +1,28 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, Image, View} from 'react-native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
-//context
+// context
 import {SubscriptionContext} from '../../context/SubscriptionContext';
 
-//component
+// component
 import NewsCard from '../../components/NewsCard/NewsCard';
+import Logo from '../../components/Logo/Logo';
 
-//style
+// style
 import styles from './NewsFeed.style';
 
-function NewsFeed() {
-  const tabBarHeight = useBottomTabBarHeight();
+//image
+const icon = require('../../assets/owl.png');
 
+function NewsFeed() {
   return (
     <SubscriptionContext.Consumer>
       {({subscriptionData}) => (
-        <SafeAreaView
-          style={[styles.container, {marginBottom: tabBarHeight + 20}]}>
-          <Text style={styles.text}>HABER AKIŞI</Text>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.image}>
+            <Logo image={icon} />
+          </View>
           {subscriptionData.map((item, index) => (
             <NewsCard key={index} rssAdress={item.url} rssSource={item.name} />
           ))}

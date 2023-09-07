@@ -2,14 +2,15 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    margin: 6,
+    margin: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#20BEFD',
-    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    backgroundColor: '#FFFFFF',
+    borderLeftWidth: 6,
+    borderBottomWidth: 1,
   },
   item: {
     flex: 1,
@@ -17,10 +18,10 @@ export default StyleSheet.create({
   news: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
+    color: '#FFFFFF',
   },
   category: {
-    fontSize: 16,
-    color: '#333333',
+    fontSize: 14,
+    color: '#515151',
   },
 });
