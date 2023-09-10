@@ -9,8 +9,8 @@ export default StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 6,
     backgroundColor: '#FFFFFF',
-    borderLeftWidth: 6,
-    borderBottomWidth: 1,
+    borderLeftWidth: 8,
+    elevation: 2,
   },
   item: {
     flex: 1,
@@ -18,7 +18,7 @@ export default StyleSheet.create({
   news: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#515151',
   },
   category: {
     fontSize: 14,

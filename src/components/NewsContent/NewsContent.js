@@ -9,13 +9,9 @@ import styles from './NewsContent.style';
 
 const NewsContent = ({title, category, color, url}) => {
   return (
-    <View
-      style={[
-        styles.container,
-        {borderLeftColor: color, borderBottomColor: color},
-      ]}>
+    <View style={[styles.container, {borderLeftColor: color}]}>
       <View style={styles.item}>
-        <Text style={[styles.news, {color: color}]}>{title}</Text>
+        <Text style={styles.news}>{title}</Text>
       </View>
       <View style={styles.item}>
         <Text style={styles.category}>/{category}</Text>

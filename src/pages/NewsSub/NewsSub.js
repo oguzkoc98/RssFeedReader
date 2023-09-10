@@ -1,6 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, FlatList, Image} from 'react-native';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import {SafeAreaView, FlatList} from 'react-native';
 
 //data
 import newsData from '../../data/news.json';
@@ -16,8 +15,6 @@ import Logo from '../../components/Logo/Logo';
 const icon = require('../../assets/owl.png');
 
 function NewsSub() {
-  const tabBarHeight = useBottomTabBarHeight();
-
   const renderItem = ({item}) => {
     return Object.keys(item.categories).map(category => (
       <NewsContent
@@ -32,9 +29,7 @@ function NewsSub() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.image}>
-        <Logo image={icon} />
-      </View>
+      <Logo image={icon} />
       <FlatList
         data={newsData.news}
         renderItem={renderItem}

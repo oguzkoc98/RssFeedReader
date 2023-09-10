@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Image} from 'react-native';
 
-// Style
+// style
 import styles from './Logo.style';
 
 function Logo({image}) {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image source={image} style={styles.image} />
     </View>
   );
 }

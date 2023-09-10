@@ -2,15 +2,14 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    backgroundColor: 'white',
+    width: 400,
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray',
+    borderBottomWidth: 4,
+    borderBottomColor: '#0077A8',
   },
   image: {
     width: 70,
     height: 70,
-    resizeMode: 'contain',
   },
 });

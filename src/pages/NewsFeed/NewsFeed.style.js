@@ -6,8 +6,14 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  image: {
-    width: 70,
-    height: 70,
+  noSubsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noSubsText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2D2D2D',
   },
 });

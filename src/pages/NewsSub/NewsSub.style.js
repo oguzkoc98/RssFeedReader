@@ -6,9 +6,4 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  image: {
-    width: 70,
-    height: 70,
-    alignItems: 'center',
-  },
 });

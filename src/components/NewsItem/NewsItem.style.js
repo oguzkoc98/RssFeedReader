@@ -47,4 +47,12 @@ export default StyleSheet.create({
     color: '#0077A8',
     fontWeight: 'bold',
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  svg: {
+    marginTop: 2,
+    marginRight: 2,
+  },
 });
