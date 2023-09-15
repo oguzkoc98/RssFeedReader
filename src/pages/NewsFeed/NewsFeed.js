@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
 // context
 import {SubscriptionContext} from '../../context/SubscriptionContext';
@@ -20,21 +20,7 @@ function NewsFeed() {
       {({subscriptionData}) => (
         <SafeAreaView style={styles.container}>
           <Logo image={icon} />
-          {subscriptionData.length > 0 ? (
-            subscriptionData.map((item, index) => (
-              <NewsCard
-                key={index}
-                rssAdress={item.url}
-                rssSource={item.name}
-              />
-            ))
-          ) : (
-            <View style={styles.noSubsContainer}>
-              <Text style={styles.noSubsText}>
-                Herhangi bir haber sitesine abone olmadınız!
-              </Text>
-            </View>
-          )}
+          <NewsCard subscriptionData={subscriptionData} />
         </SafeAreaView>
       )}
     </SubscriptionContext.Consumer>

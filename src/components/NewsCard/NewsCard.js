@@ -1,28 +1,49 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 
-//custom hook
-import useRsssData from '../../hooks/useRssData';
+//api
+import fetchRss from '../../api/fetchRss';
 
 //component
 import NewsItem from '../NewsItem/NewsItem';
 
-const NewsCard = ({rssAdress, rssSource}) => {
-  const rssData = useRsssData(rssAdress);
+const NewsCard = ({subscriptionData}) => {
+  const [data, setData] = useState([]);
 
-  const renderItem = ({item}) => (
-    <NewsItem
-      key={item.id}
-      title={item.title}
-      description={item.description}
-      link={item.link}
-      source={rssSource}
-    />
-  );
+  useEffect(() => {
+    const dataArray = [];
+    Promise.all(
+      subscriptionData.map(element => {
+        return fetchRss(element.url);
+      }),
+    ).then(responseArray => {
+      responseArray.forEach(response => {
+        const tempData = [...response.items].map(item => {
+          return {...item, source: response.title};
+        });
+        dataArray.push(...tempData);
+      });
+      //order data
+      setData(dataArray);
+    });
+  }, [subscriptionData]);
+
+  const renderItem = ({item}) => {
+    debugger;
+    return (
+      <NewsItem
+        key={item.id}
+        title={item.title}
+        description={item.description}
+        link={item.link}
+        source={item.source}
+      />
+    );
+  };
 
   return (
     <FlatList
-      data={rssData?.items || []}
+      data={data || []}
       renderItem={renderItem}
       keyExtractor={item => item.id.toString()}
     />
