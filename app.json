@@ -1,4 +1,32 @@
 {
-  "name": "RssFeedReader",
-  "displayName": "RssFeedReader"
+  "expo": {
+    "name": "RssFeedReader",
+    "slug": "rssfeedreader",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/owl.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/owl.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rssfeedreader"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/owl.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.rssfeedreader",
+      "permissions": ["INTERNET"]
+    },
+    "web": {
+      "favicon": "./src/assets/owl.png"
+    },
+    "plugins": ["expo-asset"]
+  }
 }

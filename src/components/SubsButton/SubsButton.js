@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 
 //context
 import {SubscriptionContext} from '../../context/SubscriptionContext';
@@ -16,13 +16,11 @@ const SubsButton = ({url, name}) => {
         };
 
         const isSubscribed = subscriptionData.some(item => item.url === url);
-        const buttonText = isSubscribed ? 'Çık' : 'Abone Ol';
-        const buttonTextColor = isSubscribed ? '#868686' : '#1E1E1E';
 
         return (
-          <TouchableOpacity style={styles.button} onPress={handlePress}>
-            <Text style={[styles.buttonText, {color: buttonTextColor}]}>
-              {buttonText}
+          <TouchableOpacity onPress={handlePress} activeOpacity={0.7}>
+            <Text style={styles.buttonText}>
+              {isSubscribed ? 'Abonelikten Çık' : 'Abone Ol'}
             </Text>
           </TouchableOpacity>
         );

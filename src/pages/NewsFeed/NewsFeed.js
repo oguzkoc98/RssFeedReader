@@ -1,5 +1,6 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {View, Platform} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 // context
 import {SubscriptionContext} from '../../context/SubscriptionContext';
@@ -9,19 +10,18 @@ import NewsCard from '../../components/NewsCard/NewsCard';
 
 // style
 import styles from './NewsFeed.style';
-import Logo from '../../components/Logo/Logo';
-
-// image
-const icon = require('../../assets/owl.png');
 
 function NewsFeed() {
+  const Container = Platform.OS === 'web' ? View : SafeAreaView;
+
   return (
     <SubscriptionContext.Consumer>
       {({subscriptionData}) => (
-        <SafeAreaView style={styles.container}>
-          <Logo image={icon} />
+        <Container
+          style={styles.container}
+          edges={Platform.OS === 'ios' ? ['top', 'left', 'right'] : ['top']}>
           <NewsCard subscriptionData={subscriptionData} />
-        </SafeAreaView>
+        </Container>
       )}
     </SubscriptionContext.Consumer>
   );

@@ -1,22 +1,40 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    marginHorizontal: 6,
-    padding: 12,
+    marginHorizontal: 12,
+    padding: 16,
     backgroundColor: '#FFFFFF',
-    marginBottom: 2,
+    marginBottom: 12,
+    borderRadius: 12,
+    elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
   },
+  sourceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
   source: {
     fontFamily: 'IBMPlexSans-Bold',
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#0077A8',
     marginBottom: 5,
+  },
+  category: {
+    fontFamily: 'IBMPlexSans-SemiBold',
+    fontSize: 16,
+    fontStyle: 'italic',
   },
   image: {
     width: 40,
@@ -28,31 +46,45 @@ export default StyleSheet.create({
     fontFamily: 'IBMPlexSans-SemiBold',
     fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 12,
     color: '#2D2D2D',
   },
   description: {
-    fontFamily: 'IBMPlexSans-Regular',
+    fontFamily: 'IBMPlexSans-SemiBold',
     fontSize: 16,
-    marginBottom: 8,
+    marginBottom: 12,
     color: '#515151',
   },
+  descriptionContainer: {
+    marginBottom: 12,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#F0F0F0',
+  },
+  dateText: {
+    fontSize: 12,
+    color: '#B0B0B0',
+    fontFamily: 'IBMPlexSans-SemiBold',
+    fontStyle: 'italic',
+  },
   button: {
-    marginTop: 10,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    alignSelf: 'flex-end',
-  },
-  buttonText: {
-    color: '#0077A8',
-    fontWeight: 'bold',
-  },
-  buttonContainer: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  svg: {
-    marginTop: 2,
-    marginRight: 2,
+  buttonText: {
+    color: '#808080',
+    fontWeight: '600',
+    fontSize: 13,
+  },
+  chevronIcon: {
+    marginLeft: 4,
   },
 });

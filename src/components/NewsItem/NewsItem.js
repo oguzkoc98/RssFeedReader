@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Linking} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {useNavigation} from '@react-navigation/native';
 
 // render-html
 import HTML from 'react-native-render-html';
@@ -7,29 +9,169 @@ import HTML from 'react-native-render-html';
 // style
 import styles from './NewsItem.style';
 
-// svg
-import {SvgXml} from 'react-native-svg';
+// utils
+import {getNewsColor} from '../../utils/getNewsColor';
 
-const detail = `<svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0.8C0 0.587827 0.0684819 0.384344 0.190381 0.234315C0.312279 0.0842856 0.477609 0 0.65 0H12.35C12.5224 0 12.6877 0.0842856 12.8096 0.234315C12.9315 0.384344 13 0.587827 13 0.8C13 1.01217 12.9315 1.21566 12.8096 1.36569C12.6877 1.51571 12.5224 1.6 12.35 1.6H0.65C0.477609 1.6 0.312279 1.51571 0.190381 1.36569C0.0684819 1.21566 0 1.01217 0 0.8ZM0 4C0 3.78783 0.0684819 3.58434 0.190381 3.43431C0.312279 3.28429 0.477609 3.2 0.65 3.2H12.35C12.5224 3.2 12.6877 3.28429 12.8096 3.43431C12.9315 3.58434 13 3.78783 13 4C13 4.21217 12.9315 4.41566 12.8096 4.56569C12.6877 4.71571 12.5224 4.8 12.35 4.8H0.65C0.477609 4.8 0.312279 4.71571 0.190381 4.56569C0.0684819 4.41566 0 4.21217 0 4ZM0.65 6.4C0.477609 6.4 0.312279 6.48429 0.190381 6.63431C0.0684819 6.78434 0 6.98783 0 7.2C0 7.41217 0.0684819 7.61566 0.190381 7.76569C0.312279 7.91572 0.477609 8 0.65 8H8.45C8.62239 8 8.78772 7.91572 8.90962 7.76569C9.03152 7.61566 9.1 7.41217 9.1 7.2C9.1 6.98783 9.03152 6.78434 8.90962 6.63431C8.78772 6.48429 8.62239 6.4 8.45 6.4H0.65Z" fill="#0077A8"/>
-</svg>
-`;
+// Text'i normalize et (uppercase'den normal case'e çevir)
+function normalizeText(text) {
+  if (!text || typeof text !== 'string') return text;
 
-const NewsItem = ({title, description, link, source}) => {
-  function handleClick() {
-    console.log(link);
+  // HTML tag'lerini koru
+  const hasHtmlTags = /<[^>]+>/g.test(text);
+
+  if (hasHtmlTags) {
+    // HTML içeriğini normalize et
+    return text.replace(/>([^<]+)</g, (match, content) => {
+      const normalized = normalizeCase(content);
+      return `>${normalized}<`;
+    });
   }
+
+  return normalizeCase(text);
+}
+
+// Uppercase text'i normal case'e çevir
+function normalizeCase(text) {
+  if (!text || typeof text !== 'string') return text;
+
+  // Eğer tüm harfler büyükse ve en az 5 karakter varsa, normalize et
+  const isAllUppercase =
+    text === text.toUpperCase() &&
+    text !== text.toLowerCase() &&
+    text.trim().length >= 5;
+
+  if (isAllUppercase) {
+    // İlk harfi büyük, geri kalanını küçük yap
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  }
+
+  return text;
+}
+
+// Description'ı kısalt ve normalize et
+function truncateDescription(description, maxLength = 250) {
+  if (!description) return '';
+
+  // HTML tag'lerini geçici olarak kaldır
+  const textWithoutHtml = description.replace(/<[^>]+>/g, ' ').trim();
+
+  if (textWithoutHtml.length <= maxLength) {
+    return normalizeText(description);
+  }
+
+  // Kısalt ve normalize et
+  const truncated = textWithoutHtml.substring(0, maxLength).trim();
+  const lastSpace = truncated.lastIndexOf(' ');
+  const finalText =
+    lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated;
+
+  // HTML varsa, kısaltılmış metni HTML içine yerleştir
+  if (description.includes('<')) {
+    return normalizeText(`<p>${finalText}...</p>`);
+  }
+
+  return normalizeText(finalText + '...');
+}
+
+// Tarih formatlama fonksiyonu
+function formatDate(dateString) {
+  if (!dateString) return '';
+
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return '';
+
+    const now = new Date();
+    const diff = now - date;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (minutes < 1) return 'Az önce';
+    if (minutes < 60) return `${minutes} dakika önce`;
+    if (hours < 24) return `${hours} saat önce`;
+    if (days < 7) return `${days} gün önce`;
+
+    // Tarih formatı: 15 Kas 2024, 14:30
+    const day = date.getDate();
+    const monthNames = [
+      'Oca',
+      'Şub',
+      'Mar',
+      'Nis',
+      'May',
+      'Haz',
+      'Tem',
+      'Ağu',
+      'Eyl',
+      'Eki',
+      'Kas',
+      'Ara',
+    ];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const dateHours = date.getHours().toString().padStart(2, '0');
+    const dateMinutes = date.getMinutes().toString().padStart(2, '0');
+
+    return `${day} ${month} ${year}, ${dateHours}:${dateMinutes}`;
+  } catch (error) {
+    return '';
+  }
+}
+
+const NewsItem = ({title, description, link, source, category, pubDate, imageUrl}) => {
+  const navigation = useNavigation();
+  const sourceColor = getNewsColor(source);
+  const formattedDate = formatDate(pubDate);
+
+  // Title'ı normalize et
+  const normalizedTitle = normalizeText(title);
+
+  // Description'ı kısalt ve normalize et
+  const displayDescription =
+    description && description.trim()
+      ? truncateDescription(description, 250)
+      : `<p>${normalizedTitle}</p>`;
+
+  function handleClick() {
+    navigation.navigate('NewsDetail', {
+      title: title,
+      description: description,
+      link: link,
+      source: source,
+      category: category,
+      pubDate: pubDate,
+      imageUrl: imageUrl,
+    });
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.source}>{source}</Text>
-      <Text style={styles.title}>{title}</Text>
-      <HTML source={{html: description}} contentWidth={300} />
+      <View style={styles.sourceContainer}>
+        <Text style={[styles.source, {color: sourceColor}]}>{source}</Text>
+        {category && (
+          <Text style={[styles.category, {color: sourceColor}]}>
+            {' • '}
+            {category}
+          </Text>
+        )}
+      </View>
+      <Text style={styles.title}>{normalizedTitle}</Text>
+      {displayDescription && (
+        <View style={styles.descriptionContainer}>
+          <HTML source={{html: displayDescription}} contentWidth={300} />
+        </View>
+      )}
       <View style={styles.footer}>
+        {formattedDate && <Text style={styles.dateText}>{formattedDate}</Text>}
         <TouchableOpacity style={styles.button} onPress={handleClick}>
-          <View style={styles.buttonContainer}>
-            <SvgXml xml={detail} style={styles.svg} />
-            <Text style={styles.buttonText}>Detay</Text>
-          </View>
+          <Text style={styles.buttonText}>Devamını Oku</Text>
+          <Ionicons
+            name="chevron-forward"
+            size={14}
+            color="#808080"
+            style={styles.chevronIcon}
+          />
         </TouchableOpacity>
       </View>
     </View>

@@ -7,21 +7,44 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 6,
+    paddingVertical: 10,
     backgroundColor: '#FFFFFF',
-    borderLeftWidth: 8,
     elevation: 2,
+    borderRadius: 8,
   },
-  item: {
+  categoryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
   },
-  news: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#515151',
+  iconWrapper: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  icon: {
+    // margin artık iconWrapper içinde
+  },
+  textContainer: {
+    flex: 1,
   },
   category: {
     fontSize: 14,
-    color: '#515151',
+    color: '#1F2937',
+    fontWeight: '500',
+    fontFamily: 'IBMPlexSans-Medium',
+  },
+  sourceName: {
+    fontSize: 12,
+    marginTop: 2,
+    color: '#6B7280',
+    fontWeight: '400',
+    fontFamily: 'IBMPlexSans-Regular',
+  },
+  buttonContainer: {
+    marginLeft: 12,
   },
 });
