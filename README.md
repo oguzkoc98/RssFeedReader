@@ -1,3 +1,4 @@
+
 # RssFeedReader
 
 Modern ve kullanıcı dostu bir mobil haber okuyucu uygulaması. Türkiye'nin önde gelen haber sitelerinden RSS feed'lerini abone olarak takip edebilir, haberleri kategorilere göre filtreleyebilir ve uygulama içinde detaylı olarak okuyabilirsiniz.
@@ -67,3 +68,4 @@ React Native ve Expo kullanılarak geliştirilmiştir.
 ---
 
 **Not**: Bu uygulama eğitim amaçlı geliştirilmiştir. Haber içerikleri ilgili haber sitelerinin RSS feed'lerinden alınmaktadır.
+
