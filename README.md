@@ -24,6 +24,12 @@ Modern ve kullanıcı dostu bir mobil haber okuyucu uygulaması. Türkiye'nin ö
 - **HTML Entity Decoding**: HTML entity'lerini ve özel karakterleri doğru şekilde decode eder
 - **Offline Depolama**: AsyncStorage ile abonelik verilerini yerel olarak saklar
 
+![1](https://github.com/user-attachments/assets/62b921ae-5254-4047-ad0d-728578183fb3)
+![2](https://github.com/user-attachments/assets/92c83242-c7bd-4616-977f-ba93930e35cf)
+![3](https://github.com/user-attachments/assets/ad9c0469-fce3-4d68-844e-d59567d1942d)
+![4](https://github.com/user-attachments/assets/5a1a8d11-2a9e-4d33-91fb-632bcbdfab08)
+
+
 ## 📖 Kullanım
 
 ### Haber Akışı
